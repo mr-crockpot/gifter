@@ -19,6 +19,8 @@
 - (IBAction)saveInfo:(id)sender;
 
 @property (strong,nonatomic) NSArray *arrPeople;
+@property (strong, nonatomic) NSArray *arrOrders;
+@property (strong, nonatomic) NSArray *arrIDs;
 
 
 @property (nonatomic) int recordIDToEdit;
@@ -29,6 +31,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtFieldPrice;
 
 @property (strong, nonatomic) NSMutableArray *arrSelectedRows;
+@property (strong, nonatomic) NSMutableArray *arrActivePeople;
+
+
 
 
 @end

@@ -20,6 +20,7 @@
     _arrSelectedRows =[[NSMutableArray alloc] init];
     [self loadInfoToEdit];
     
+    NSLog(@"The income record to edit is %i",_recordIDToEdit);
     
     // Do any additional setup after loading the view.
 }
@@ -35,7 +36,7 @@
     
     // If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
 #warning Placeholder
-    _recordIDToEdit = 1;
+ //   _recordIDToEdit = -1;
     
     NSString *query;
     if (_recordIDToEdit == -1) {
@@ -70,10 +71,34 @@
 -(void)loadInfoToEdit{
     NSString *queryPeople = @"SELECT * FROM people";
     _arrPeople =[[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
+    NSString *queryIDs = @"SELECT peopleID FROM people";
+    _arrIDs = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:queryIDs]];
+    NSString *queryOrders = @"SELECT * FROM orders";
+    _arrOrders = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:queryOrders]];
     
     
     
     
+    if (_recordIDToEdit != -1) {
+        NSString *queryLoad = [NSString stringWithFormat:@"SELECT * FROM gifts where giftID=%d", _recordIDToEdit];
+        NSArray *results = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:queryLoad]];
+        
+        _txtFieldGift.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"giftname"]];
+        _txtFieldPrice.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"price"]];
+        
+        
+    }
+    //check orders
+    for (int n=0; n<_arrOrders.count; n++) {
+        if ([_arrOrders[n][2] integerValue ]   == _recordIDToEdit ) {
+            NSLog(@"We have a match");
+            int rowIndex = (int)[_arrIDs indexOfObject:[NSArray arrayWithObjects:_arrOrders[n][1], nil]];
+            [_arrSelectedRows addObject:@(rowIndex)];
+            NSLog(@"%@", _arrSelectedRows);
+//            NSLog(@"%@", [NSArray arrayWithObjects:_arrOrders[n][1], nil]);
+//            NSLog(@"%d", (int)[_arrIDs indexOfObject:[NSArray arrayWithObjects:_arrOrders[n][1], nil]]);
+        }
+    }
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -95,7 +120,7 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [[_arrPeople objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstName],[[_arrPeople objectAtIndex:indexPath.row] objectAtIndex:indexOfLastName]];
   
-    if ([_arrSelectedRows containsObject:[NSString stringWithFormat:@"%li",indexPath.row]]) {
+    if ([_arrSelectedRows containsObject:@(indexPath.row)]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         cell.textLabel.textColor = [UIColor redColor];
     }
@@ -112,12 +137,13 @@
     
     NSString *personID = _arrPeople [indexPath.row][0];
     
-    if ([_arrSelectedRows containsObject:[NSString stringWithFormat:@"%li",indexPath.row]]) {
-        [_arrSelectedRows removeObject:[NSString stringWithFormat:@"%li",indexPath.row]];
+    if ([_arrSelectedRows containsObject:@(indexPath.row)]) {
+        [_arrSelectedRows removeObject:@(indexPath.row)];
         [self deleteOder:[personID integerValue] giftID:_recordIDToEdit];
     }
     else{
-        [_arrSelectedRows addObject:[NSString stringWithFormat:@"%li",indexPath.row]];
+        [_arrSelectedRows addObject:@(indexPath.row)];
+        NSLog(@"The person id is %@",_arrPeople[indexPath.row][0]);
         [self addOrder:[personID integerValue] giftID:_recordIDToEdit];
     }
     
@@ -127,7 +153,7 @@
 }
 -(void)addOrder: (NSInteger)personID giftID: (NSInteger) giftID{
   
-    NSString *queryOrder = [NSString stringWithFormat: @"INSERT INTO orders VALUES (null, %li, %li,0)",personID,giftID];
+    NSString *queryOrder = [NSString stringWithFormat: @"INSERT INTO orders VALUES (null, %li, %li, 0)",personID,giftID];
     [_dbManager executeQuery:queryOrder];
 }
 
