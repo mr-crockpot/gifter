@@ -33,7 +33,9 @@
 @property (strong, nonatomic) NSMutableArray *arrSelectedRows;
 @property (strong, nonatomic) NSMutableArray *arrActivePeople;
 
+@property (strong, nonatomic) IBOutlet UIButton *btnViewDetail;
 
+- (IBAction)btnViewDetailPressed:(id)sender;
 
 
 @end

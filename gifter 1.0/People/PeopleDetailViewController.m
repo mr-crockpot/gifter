@@ -47,7 +47,7 @@
        
     }
     else{
-        query = [NSString stringWithFormat:@"UPDATE people SET firstname='%@', lastname='%@', birthday='%@' where peopleID= %d", _txtFieldFirstName.text, _txtFieldLastName.text, _txtFieldBirthday.text, _recordIDToEdit];
+        query = [NSString stringWithFormat:@"UPDATE people SET firstname='%@', lastname='%@', birthday='%@' where peopleID= %li", _txtFieldFirstName.text, _txtFieldLastName.text, _txtFieldBirthday.text, _recordIDToEdit];
     }
 
   // Execute the query.
@@ -74,8 +74,8 @@
 
 -(void)loadInfoToEdit{
     // Create the query.
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM people where peopleID=%d", _recordIDToEdit];
-    
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM people where peopleID=%li", _recordIDToEdit];
+    NSLog(@"The number is %li", _recordIDToEdit);
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:query]];
     

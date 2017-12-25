@@ -7,6 +7,8 @@
 //
 
 #import "GiftsDetailViewController.h"
+#import "PeopleDetailViewController.h"
+#import "GiftsDetailTableViewCell.h"
 
 @interface GiftsDetailViewController ()
 
@@ -35,8 +37,7 @@
   
     
     // If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
-#warning Placeholder
- //   _recordIDToEdit = -1;
+
     
     NSString *query;
     if (_recordIDToEdit == -1) {
@@ -110,14 +111,18 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
-    
+    GiftsDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
+    UIButton *viewButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    [viewButton setTitle:@"\U1F6C8" forState:UIControlStateNormal];
+   // viewButton.layer.backgroundColor = [[UIColor redColor] CGColor];
+    [viewButton addTarget:self action:@selector(btnViewDetailPressed:) forControlEvents:UIControlEventTouchUpInside];
   //  NSInteger indexOfFirstName = [_dbManager.arrColumnNames indexOfObject:@"firstname"];
    // NSInteger indexOfLastName = [_dbManager.arrColumnNames indexOfObject:@"lastname"];
   
     NSInteger indexOfFirstName = 1;
     NSInteger indexOfLastName =  2;
-    
+    NSInteger indexOfID =  0;
+
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [[_arrPeople objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstName],[[_arrPeople objectAtIndex:indexPath.row] objectAtIndex:indexOfLastName]];
   
     if ([_arrSelectedRows containsObject:@(indexPath.row)]) {
@@ -129,6 +134,9 @@
         cell.textLabel.textColor = [UIColor blackColor];
     }
     
+   // [viewButton setTag: (long)_arrPeople[indexPath.row][indexOfID]];
+     [viewButton setTag: [_arrPeople[indexPath.row][indexOfID]integerValue]];
+    [cell.contentView addSubview:viewButton];
     
     return cell;
 }
@@ -167,4 +175,16 @@
 
 
 
+- (IBAction)btnViewDetailPressed:(UIButton *)sender {
+    
+    [self performSegueWithIdentifier:@"segueGiftDetailToPeopleDetail" sender:sender];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"segueGiftDetailToPeopleDetail"]) {
+        PeopleDetailViewController *peopleDetailViewController = [segue destinationViewController];
+        peopleDetailViewController.recordIDToEdit = ((UIButton *)sender).tag;
+    }
+}
 @end

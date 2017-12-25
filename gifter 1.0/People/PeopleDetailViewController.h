@@ -29,7 +29,7 @@
 
 @property (strong,nonatomic) DBManager *dbManager;
 
-@property (nonatomic) int recordIDToEdit;
+@property (nonatomic) NSInteger recordIDToEdit;
 -(void)loadInfoToEdit;
 
 @property NSDateFormatter *df;
