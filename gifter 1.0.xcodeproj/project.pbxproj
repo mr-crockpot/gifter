@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E357C4621FF209D800DBEF2D /* GiftsForPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E357C4611FF209D800DBEF2D /* GiftsForPeopleViewController.m */; };
 		E379073B1FCA2A3C0031D108 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E379073A1FCA2A3C0031D108 /* AppDelegate.m */; };
 		E37907411FCA2A3C0031D108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E379073F1FCA2A3C0031D108 /* Main.storyboard */; };
 		E37907431FCA2A3C0031D108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37907421FCA2A3C0031D108 /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E357C4601FF209D800DBEF2D /* GiftsForPeopleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsForPeopleViewController.h; sourceTree = "<group>"; };
+		E357C4611FF209D800DBEF2D /* GiftsForPeopleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsForPeopleViewController.m; sourceTree = "<group>"; };
 		E37907361FCA2A3C0031D108 /* gifter 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gifter 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37907391FCA2A3C0031D108 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E379073A1FCA2A3C0031D108 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E347C3C41FF207D50056E6C3 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				E357C4601FF209D800DBEF2D /* GiftsForPeopleViewController.h */,
+				E357C4611FF209D800DBEF2D /* GiftsForPeopleViewController.m */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
 		E379072D1FCA2A3B0031D108 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +142,7 @@
 				E379073F1FCA2A3C0031D108 /* Main.storyboard */,
 				E3DDDC371FF19B0A001E9E31 /* QueryViewController.h */,
 				E3DDDC381FF19B0A001E9E31 /* QueryViewController.m */,
+				E347C3C41FF207D50056E6C3 /* Queries */,
 				E3B512B71FD6FCBA00591583 /* Gifts */,
 				E3B512B61FD6FC9C00591583 /* People */,
 				E3DDDC351FF19A56001E9E31 /* Intro */,
@@ -348,6 +361,7 @@
 			files = (
 				E37907751FCB2A970031D108 /* PeopleTableViewController.m in Sources */,
 				E37907491FCA2A3C0031D108 /* main.m in Sources */,
+				E357C4621FF209D800DBEF2D /* GiftsForPeopleViewController.m in Sources */,
 				E3B512B51FD6FB4700591583 /* GiftsTableViewController.m in Sources */,
 				E379073B1FCA2A3C0031D108 /* AppDelegate.m in Sources */,
 				E379076D1FCA5AFD0031D108 /* DBManager.m in Sources */,

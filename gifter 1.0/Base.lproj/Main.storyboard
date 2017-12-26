@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sort"/>
                                 <connections>
-                                    <segue destination="xjL-xH-g0d" kind="show" identifier="segueIntroToQuery" id="dr7-bJ-uR8"/>
+                                    <segue destination="voe-nD-plH" kind="show" identifier="segueIntroToQuery" id="dr7-bJ-uR8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,37 +47,105 @@
             </objects>
             <point key="canvasLocation" x="97" y="127"/>
         </scene>
-        <!--Query View Controller-->
+        <!--Gifts For People-->
         <scene sceneID="7Rv-Dc-SCz">
             <objects>
-                <viewController id="xjL-xH-g0d" customClass="QueryViewController" sceneMemberID="viewController">
+                <viewController id="xjL-xH-g0d" customClass="GiftsForPeopleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p20-Za-JkO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sort" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFf-lv-eJ5">
-                                <rect key="frame" x="166" y="133" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gifts For People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFf-lv-eJ5">
+                                <rect key="frame" x="16" y="83" width="123" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVS-Um-VvK">
-                                <rect key="frame" x="146" y="222" width="73" height="30"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VQV-LD-dfA">
+                                <rect key="frame" x="28" y="142" width="331" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Run Query"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellsPeople" id="0NI-Hu-W11">
+                                        <rect key="frame" x="0.0" y="28" width="331" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0NI-Hu-W11" id="MgV-rV-1B3">
+                                            <rect key="frame" x="0.0" y="0.0" width="331" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="btnQueryPressed:" destination="xjL-xH-g0d" eventType="touchUpInside" id="GrF-5X-S7C"/>
+                                    <outlet property="dataSource" destination="xjL-xH-g0d" id="n9L-D7-4hT"/>
+                                    <outlet property="delegate" destination="xjL-xH-g0d" id="OKP-cb-rPv"/>
                                 </connections>
-                            </button>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Cg-ja-uNC">
+                                <rect key="frame" x="28" y="384" width="331" height="223"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellsGifts" id="CUt-Kl-eeG">
+                                        <rect key="frame" x="0.0" y="28" width="331" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CUt-Kl-eeG" id="BkL-nI-NkG">
+                                            <rect key="frame" x="0.0" y="0.0" width="331" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xjL-xH-g0d" id="JN7-8P-hZx"/>
+                                    <outlet property="delegate" destination="xjL-xH-g0d" id="Wc2-Tv-jFP"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="9SG-Gu-Jsl"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Gifts For People" id="yJ7-wf-3N4"/>
+                    <connections>
+                        <outlet property="tblViewGifts" destination="8Cg-ja-uNC" id="A5y-Y3-fNB"/>
+                        <outlet property="tblViewPeople" destination="VQV-LD-dfA" id="9OJ-Iy-4B7"/>
+                        <segue destination="hfT-Zb-x7A" kind="show" identifier="segueGiftsForPeopleToGiftsDetails" id="0y5-AC-y69"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vzz-VE-E74" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="127"/>
+            <point key="canvasLocation" x="1613.5999999999999" y="124.58770614692655"/>
+        </scene>
+        <!--People For Gifts-->
+        <scene sceneID="S8H-KT-06Y">
+            <objects>
+                <viewController id="DUk-e4-PnU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5E1-B0-EEr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="08z-6o-ohP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="People For Gifts" id="Hwa-4q-b2T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDy-we-POB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2310" y="127"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="jRi-XA-6Fw">
+            <objects>
+                <viewController id="TLN-Cq-wdR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uET-6K-Pcv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1bZ-ho-28U"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Events" id="7ZD-5z-dHi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKV-tt-xb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3002" y="125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ayX-7X-yUl">
@@ -216,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2N-S7-WNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="904"/>
+            <point key="canvasLocation" x="2090" y="866"/>
         </scene>
         <!--Gifts-->
         <scene sceneID="obI-5W-iQl">
@@ -390,8 +458,29 @@
             </objects>
             <point key="canvasLocation" x="-748" y="128"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="x3A-CP-Ioi">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="voe-nD-plH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4xc-wg-sZ2">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="xjL-xH-g0d" kind="relationship" relationship="viewControllers" id="JkQ-QT-T5R"/>
+                        <segue destination="DUk-e4-PnU" kind="relationship" relationship="viewControllers" id="LEQ-Y9-zff"/>
+                        <segue destination="TLN-Cq-wdR" kind="relationship" relationship="viewControllers" id="kHb-lY-tDR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLD-tD-A30" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="125"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="0y5-AC-y69"/>
         <segue reference="8MA-pX-GDW"/>
         <segue reference="BLm-yS-CV6"/>
     </inferredMetricsTieBreakers>

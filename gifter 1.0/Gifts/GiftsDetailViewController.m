@@ -22,7 +22,7 @@
     _arrSelectedRows =[[NSMutableArray alloc] init];
     [self loadInfoToEdit];
     
-    NSLog(@"The income record to edit is %i",_recordIDToEdit);
+   
     
     // Do any additional setup after loading the view.
 }
