@@ -112,9 +112,11 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GiftsDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
-    UIButton *viewButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    [viewButton setTitle:@"\U1F6C8" forState:UIControlStateNormal];
-   // viewButton.layer.backgroundColor = [[UIColor redColor] CGColor];
+    UIButton *viewButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 40, 30)];
+    [viewButton setTitle:@"\u24D8" forState:UIControlStateNormal];
+    [viewButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+   
     [viewButton addTarget:self action:@selector(btnViewDetailPressed:) forControlEvents:UIControlEventTouchUpInside];
   //  NSInteger indexOfFirstName = [_dbManager.arrColumnNames indexOfObject:@"firstname"];
    // NSInteger indexOfLastName = [_dbManager.arrColumnNames indexOfObject:@"lastname"];

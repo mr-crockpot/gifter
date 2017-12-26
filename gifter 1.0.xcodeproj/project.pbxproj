@@ -22,6 +22,7 @@
 		E3B512B51FD6FB4700591583 /* GiftsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B512B41FD6FB4700591583 /* GiftsTableViewController.m */; };
 		E3B512BA1FD6FD2900591583 /* GiftsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B512B91FD6FD2900591583 /* GiftsDetailViewController.m */; };
 		E3B512BC1FD786D600591583 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3B512BB1FD786D500591583 /* gifterDB.db */; };
+		E3DDDC391FF19B0A001E9E31 /* QueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DDDC381FF19B0A001E9E31 /* QueryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		E3B512B81FD6FD2900591583 /* GiftsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsDetailViewController.h; sourceTree = "<group>"; };
 		E3B512B91FD6FD2900591583 /* GiftsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsDetailViewController.m; sourceTree = "<group>"; };
 		E3B512BB1FD786D500591583 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
+		E3DDDC371FF19B0A001E9E31 /* QueryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QueryViewController.h; sourceTree = "<group>"; };
+		E3DDDC381FF19B0A001E9E31 /* QueryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QueryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +128,12 @@
 			isa = PBXGroup;
 			children = (
 				E379073F1FCA2A3C0031D108 /* Main.storyboard */,
+				E3DDDC371FF19B0A001E9E31 /* QueryViewController.h */,
+				E3DDDC381FF19B0A001E9E31 /* QueryViewController.m */,
 				E3B512B71FD6FCBA00591583 /* Gifts */,
 				E3B512B61FD6FC9C00591583 /* People */,
-				E37907701FCB21E20031D108 /* IntroViewController.h */,
-				E37907711FCB21E20031D108 /* IntroViewController.m */,
-				E379076B1FCA5AFD0031D108 /* DBManager.h */,
-				E379076C1FCA5AFD0031D108 /* DBManager.m */,
+				E3DDDC351FF19A56001E9E31 /* Intro */,
+				E3DDDC361FF19A7B001E9E31 /* Other */,
 				E37907391FCA2A3C0031D108 /* AppDelegate.h */,
 				E379073A1FCA2A3C0031D108 /* AppDelegate.m */,
 				E37907421FCA2A3C0031D108 /* Assets.xcassets */,
@@ -189,6 +192,24 @@
 				E3B512B41FD6FB4700591583 /* GiftsTableViewController.m */,
 			);
 			path = Gifts;
+			sourceTree = "<group>";
+		};
+		E3DDDC351FF19A56001E9E31 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				E37907711FCB21E20031D108 /* IntroViewController.m */,
+				E37907701FCB21E20031D108 /* IntroViewController.h */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		E3DDDC361FF19A7B001E9E31 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E379076C1FCA5AFD0031D108 /* DBManager.m */,
+				E379076B1FCA5AFD0031D108 /* DBManager.h */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,6 +351,7 @@
 				E3B512B51FD6FB4700591583 /* GiftsTableViewController.m in Sources */,
 				E379073B1FCA2A3C0031D108 /* AppDelegate.m in Sources */,
 				E379076D1FCA5AFD0031D108 /* DBManager.m in Sources */,
+				E3DDDC391FF19B0A001E9E31 /* QueryViewController.m in Sources */,
 				E3A0C79A1FF0A67300F66274 /* GiftsDetailTableViewCell.m in Sources */,
 				E3B512BA1FD6FD2900591583 /* GiftsDetailViewController.m in Sources */,
 				E379077A1FCB432E0031D108 /* PeopleDetailViewController.m in Sources */,

@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="97" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--Query View Controller-->
         <scene sceneID="7Rv-Dc-SCz">
             <objects>
-                <viewController id="xjL-xH-g0d" sceneMemberID="viewController">
+                <viewController id="xjL-xH-g0d" customClass="QueryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p20-Za-JkO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,6 +62,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVS-Um-VvK">
+                                <rect key="frame" x="146" y="222" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Run Query"/>
+                                <connections>
+                                    <action selector="btnQueryPressed:" destination="xjL-xH-g0d" eventType="touchUpInside" id="GrF-5X-S7C"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="9SG-Gu-Jsl"/>
