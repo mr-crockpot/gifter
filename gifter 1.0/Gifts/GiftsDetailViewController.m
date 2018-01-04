@@ -8,7 +8,7 @@
 
 #import "GiftsDetailViewController.h"
 #import "PeopleDetailViewController.h"
-#import "GiftsDetailTableViewCell.h"
+
 
 @interface GiftsDetailViewController ()
 
@@ -92,12 +92,10 @@
     //check orders
     for (int n=0; n<_arrOrders.count; n++) {
         if ([_arrOrders[n][2] integerValue ]   == _recordIDToEdit ) {
-            NSLog(@"We have a match");
+           
             int rowIndex = (int)[_arrIDs indexOfObject:[NSArray arrayWithObjects:_arrOrders[n][1], nil]];
             [_arrSelectedRows addObject:@(rowIndex)];
-            NSLog(@"%@", _arrSelectedRows);
-//            NSLog(@"%@", [NSArray arrayWithObjects:_arrOrders[n][1], nil]);
-//            NSLog(@"%d", (int)[_arrIDs indexOfObject:[NSArray arrayWithObjects:_arrOrders[n][1], nil]]);
+           
         }
     }
 }
@@ -111,7 +109,9 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GiftsDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
+   
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
+    
     UIButton *viewButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 40, 30)];
     [viewButton setTitle:@"\u24D8" forState:UIControlStateNormal];
     [viewButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -153,7 +153,7 @@
     }
     else{
         [_arrSelectedRows addObject:@(indexPath.row)];
-        NSLog(@"The person id is %@",_arrPeople[indexPath.row][0]);
+        
         [self addOrder:[personID integerValue] giftID:_recordIDToEdit];
     }
     

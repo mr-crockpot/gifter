@@ -14,7 +14,8 @@
 -(void)editingInfoWasFinished;
 @end
 
-@interface PeopleDetailViewController : UIViewController <UITextFieldDelegate>
+@interface PeopleDetailViewController : UIViewController <UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+
 @property (strong, nonatomic) IBOutlet UITextField *txtFieldFirstName;
 @property (strong, nonatomic) IBOutlet UITextField *txtFieldLastName;
 @property (strong, nonatomic) IBOutlet UITextField *txtFieldBirthday;
@@ -28,9 +29,12 @@
 - (IBAction)saveInfo:(id)sender;
 
 @property (strong,nonatomic) DBManager *dbManager;
+@property (strong, nonatomic) NSMutableArray *arrGifts;
+
 
 @property (nonatomic) NSInteger recordIDToEdit;
 -(void)loadInfoToEdit;
+@property (strong, nonatomic) IBOutlet UITableView *tblViewPeople;
 
 @property NSDateFormatter *df;
 

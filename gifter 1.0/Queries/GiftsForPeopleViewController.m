@@ -37,8 +37,6 @@
     _arrPeopleIDs = [[NSMutableArray alloc] init];
     _arrGifts = [[NSMutableArray alloc] init];
     
-    
-   
 }
 
 
@@ -52,12 +50,13 @@
         giftQuery =[NSString stringWithFormat: @"SELECT * FROM orders JOIN people ON people = peopleID JOIN gifts on gifts = giftID WHERE people = %li",currentPeopleID];
         
         _arrGifts = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:giftQuery]];
+      
         [_tblViewGifts reloadData];
     }
     
     if (tableView == _tblViewGifts){
         _giftRowSelected = indexPath.row;
-        NSLog(@"Row selected is %li",_giftRowSelected);
+       
         [self performSegueWithIdentifier:@"segueGiftsForPeopleToGiftsDetails" sender:self];
     }
 }
@@ -86,8 +85,7 @@
     cellPeople.textLabel.text = [NSString stringWithFormat:@"%@", _arrPeople[indexPath.row][1]];
        
         [_arrPeopleIDs addObject:_arrPeople[indexPath.row][0]];
-        NSLog(@"People ids are %@",_arrPeopleIDs);
-        
+       
         return cellPeople;
     }
     else if (tableView == _tblViewGifts) {
@@ -106,7 +104,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueGiftsForPeopleToGiftsDetails"]) {
         GiftsDetailViewController *giftsDetailViewController = [segue destinationViewController];
-        giftsDetailViewController.recordIDToEdit = [_arrGiftIDs[_giftRowSelected] integerValue];
+        giftsDetailViewController.recordIDToEdit = [_arrGiftIDs[_giftRowSelected] intValue];
         
     }
 }

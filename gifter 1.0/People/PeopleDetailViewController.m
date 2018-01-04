@@ -37,6 +37,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _arrGifts.count;
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",_arrGifts[indexPath.row][1]];
+    return cell;
+}
+
+
+
+
+
 - (IBAction)saveInfo:(id)sender {
     // Prepare the query string.
     // If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
@@ -52,7 +72,7 @@
 
   // Execute the query.
     [self.dbManager executeQuery:query];
-    NSLog(@"The query is %@",query);
+   
     // If the query was successfully executed then pop the view controller.
     if (self.dbManager.affectedRows != 0) {
         NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
@@ -75,7 +95,8 @@
 -(void)loadInfoToEdit{
     // Create the query.
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM people where peopleID=%li", _recordIDToEdit];
-    NSLog(@"The number is %li", _recordIDToEdit);
+     NSString *queryPeople = @"SELECT * FROM gifts";
+  
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:query]];
     
@@ -85,29 +106,29 @@
     _txtFieldBirthday.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"birthday"]];
     
     NSString *dateToUse = _txtFieldBirthday.text;
-    NSLog(@"The date string is %@",dateToUse);
+   
     
     NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
     df2.dateFormat = @"MM dd yyyy";
     
     NSDate *dateToSet = [df2 dateFromString:dateToUse];
-    NSLog(@"The NSDATE date is %@",dateToSet);
-   // dateToSet = [_df dateFromString:@"12 10 2017"];
-  //  NSLog(@"The date is %@",dateToSet);
-  
+   
+ 
       [_datePickerBirthday setDate:dateToSet];
+    
+    //Load the gifts tables
+    
+    _arrGifts = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
     
 }
 
 
 - (IBAction)datePickerBirthdayChanged:(UIDatePicker *)sender {
     
-    
     _df.dateFormat = @"MM dd yyyy";
     NSString *datePickedString =[_df stringFromDate:sender.date];
-   NSLog(@"The date is %@", datePickedString);
+ 
     _txtFieldBirthday.text = datePickedString;
-    NSLog(@"The date date is %@",[_df dateFromString:datePickedString]);
     
     
 }

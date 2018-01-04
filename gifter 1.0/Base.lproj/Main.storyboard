@@ -118,18 +118,70 @@
         <!--People For Gifts-->
         <scene sceneID="S8H-KT-06Y">
             <objects>
-                <viewController id="DUk-e4-PnU" sceneMemberID="viewController">
+                <viewController id="DUk-e4-PnU" customClass="PeopleForGiftsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5E1-B0-EEr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0jq-0c-i61">
+                                <rect key="frame" x="16" y="138" width="343" height="187"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellsGifts" id="ad9-Y9-BbN">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ad9-Y9-BbN" id="wep-0S-ecV">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DUk-e4-PnU" id="eLZ-6s-GMX"/>
+                                    <outlet property="delegate" destination="DUk-e4-PnU" id="7WQ-hD-eb0"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gAY-3G-l5c">
+                                <rect key="frame" x="16" y="379" width="343" height="227"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellsPeople" id="O5M-DN-J78">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O5M-DN-J78" id="y2v-cN-acr">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DUk-e4-PnU" id="GuB-Ec-o4b"/>
+                                    <outlet property="delegate" destination="DUk-e4-PnU" id="YtY-b1-mkq"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People For Gifts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doN-Lj-xcD">
+                                <rect key="frame" x="16" y="78" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="08z-6o-ohP"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="People For Gifts" id="Hwa-4q-b2T"/>
+                    <connections>
+                        <outlet property="tblViewGifts" destination="0jq-0c-i61" id="iZI-EV-Fy8"/>
+                        <outlet property="tblViewPeople" destination="gAY-3G-l5c" id="8CB-Ck-a1I"/>
+                        <segue destination="LxB-Qk-Toa" kind="show" identifier="seguePeopleForGiftsToPeopleDetail" id="HlW-qT-WPY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDy-we-POB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2310" y="127"/>
+            <point key="canvasLocation" x="2309.5999999999999" y="126.38680659670166"/>
         </scene>
         <!--Events-->
         <scene sceneID="jRi-XA-6Fw">
@@ -199,7 +251,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4l-Is-tUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="726" y="904"/>
+            <point key="canvasLocation" x="775" y="905"/>
         </scene>
         <!--People Details-->
         <scene sceneID="zOp-Pa-dvY">
@@ -264,6 +316,35 @@
                                     <action selector="datePickerBirthdayChanged:" destination="LxB-Qk-Toa" eventType="valueChanged" id="OMa-ZY-JS9"/>
                                 </connections>
                             </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xdh-Pb-JRP">
+                                <rect key="frame" x="16" y="447" width="343" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cells" id="t4b-7Z-gUH">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t4b-7Z-gUH" id="gpn-fu-CBS">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LxB-Qk-Toa" id="OT9-ga-0LS"/>
+                                    <outlet property="delegate" destination="LxB-Qk-Toa" id="Giy-7f-uNJ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3N-J8-fWy">
+                                <rect key="frame" x="295" y="411" width="33" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Date"/>
+                                <connections>
+                                    <segue destination="llT-yr-QX0" kind="popoverPresentation" identifier="seguePeopleDetailToDatePicker" animates="NO" popoverAnchorView="Qop-EO-KgQ" id="2x4-dY-Wod">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="Zsn-qF-EXc"/>
@@ -277,6 +358,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePickerBirthday" destination="l87-l5-98H" id="ReK-8g-y8b"/>
+                        <outlet property="tblViewPeople" destination="Xdh-Pb-JRP" id="4f6-KD-wEy"/>
                         <outlet property="txtFieldBirthday" destination="Jy3-ah-JgA" id="5dC-8k-rhr"/>
                         <outlet property="txtFieldFirstName" destination="fic-tt-IUO" id="1IW-O4-LZV"/>
                         <outlet property="txtFieldLastName" destination="EFY-Wt-lkO" id="ZWw-gi-BIo"/>
@@ -284,7 +366,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2N-S7-WNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2090" y="866"/>
+            <point key="canvasLocation" x="2088.8000000000002" y="865.81709145427294"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tSq-50-V0N">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="overCurrentContext" id="llT-yr-QX0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cYQ-Fp-Xls">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arS-nw-zVE">
+                                <rect key="frame" x="16" y="169" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.054693514530000001" blue="0.109238398" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date Picker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJY-GO-vkb">
+                                <rect key="frame" x="23" y="132" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kBj-1q-2OL"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Qz-iB-17Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="866"/>
         </scene>
         <!--Gifts-->
         <scene sceneID="obI-5W-iQl">
@@ -409,7 +522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzf-Ms-5lD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="1620.5397301349326"/>
+            <point key="canvasLocation" x="953" y="1674"/>
         </scene>
         <!--Groups-->
         <scene sceneID="P36-ii-USd">
@@ -480,8 +593,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0y5-AC-y69"/>
-        <segue reference="8MA-pX-GDW"/>
+        <segue reference="Q6l-Bk-ilG"/>
+        <segue reference="R3v-Y0-CeY"/>
         <segue reference="BLm-yS-CV6"/>
     </inferredMetricsTieBreakers>
 </document>
