@@ -149,7 +149,7 @@
     
     if ([_arrSelectedRows containsObject:@(indexPath.row)]) {
         [_arrSelectedRows removeObject:@(indexPath.row)];
-        [self deleteOder:[personID integerValue] giftID:_recordIDToEdit];
+        [self deleteOrder:[personID integerValue] giftID:_recordIDToEdit];
     }
     else{
         [_arrSelectedRows addObject:@(indexPath.row)];
@@ -167,7 +167,7 @@
     [_dbManager executeQuery:queryOrder];
 }
 
--(void)deleteOder: (NSInteger)personID giftID: (NSInteger)giftID {
+-(void)deleteOrder: (NSInteger)personID giftID: (NSInteger)giftID {
     NSString *queryDeleteOrder = [NSString stringWithFormat:@"DELETE FROM orders WHERE people = %li AND gifts = %li",personID,giftID ];
     [_dbManager executeQuery:queryDeleteOrder];
     

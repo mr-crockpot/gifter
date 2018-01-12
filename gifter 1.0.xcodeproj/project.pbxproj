@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E357C4621FF209D800DBEF2D /* GiftsForPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E357C4611FF209D800DBEF2D /* GiftsForPeopleViewController.m */; };
+		E36160862001C1B3008C60A6 /* PeopleDetailTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36160852001C1B3008C60A6 /* PeopleDetailTwoViewController.m */; };
+		E3616089200454AC008C60A6 /* EventsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3616088200454AC008C60A6 /* EventsTableViewController.m */; };
 		E379073B1FCA2A3C0031D108 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E379073A1FCA2A3C0031D108 /* AppDelegate.m */; };
 		E37907411FCA2A3C0031D108 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E379073F1FCA2A3C0031D108 /* Main.storyboard */; };
 		E37907431FCA2A3C0031D108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E37907421FCA2A3C0031D108 /* Assets.xcassets */; };
@@ -19,9 +21,9 @@
 		E37907721FCB21E20031D108 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37907711FCB21E20031D108 /* IntroViewController.m */; };
 		E37907751FCB2A970031D108 /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37907741FCB2A970031D108 /* PeopleTableViewController.m */; };
 		E379077A1FCB432E0031D108 /* PeopleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37907791FCB432E0031D108 /* PeopleDetailViewController.m */; };
+		E39D59EB2009539700D67390 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E39D59EA2009539600D67390 /* gifterDB.db */; };
 		E3B512B51FD6FB4700591583 /* GiftsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B512B41FD6FB4700591583 /* GiftsTableViewController.m */; };
 		E3B512BA1FD6FD2900591583 /* GiftsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B512B91FD6FD2900591583 /* GiftsDetailViewController.m */; };
-		E3B512BC1FD786D600591583 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3B512BB1FD786D500591583 /* gifterDB.db */; };
 		E3EBAA7E1FF3443D0008DECF /* PeopleForGiftsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EBAA7D1FF3443D0008DECF /* PeopleForGiftsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,10 @@
 /* Begin PBXFileReference section */
 		E357C4601FF209D800DBEF2D /* GiftsForPeopleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsForPeopleViewController.h; sourceTree = "<group>"; };
 		E357C4611FF209D800DBEF2D /* GiftsForPeopleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsForPeopleViewController.m; sourceTree = "<group>"; };
+		E36160842001C1B3008C60A6 /* PeopleDetailTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleDetailTwoViewController.h; sourceTree = "<group>"; };
+		E36160852001C1B3008C60A6 /* PeopleDetailTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleDetailTwoViewController.m; sourceTree = "<group>"; };
+		E3616087200454AC008C60A6 /* EventsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventsTableViewController.h; sourceTree = "<group>"; };
+		E3616088200454AC008C60A6 /* EventsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventsTableViewController.m; sourceTree = "<group>"; };
 		E37907361FCA2A3C0031D108 /* gifter 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gifter 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37907391FCA2A3C0031D108 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E379073A1FCA2A3C0031D108 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,11 +74,11 @@
 		E37907741FCB2A970031D108 /* PeopleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
 		E37907781FCB432E0031D108 /* PeopleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleDetailViewController.h; sourceTree = "<group>"; };
 		E37907791FCB432E0031D108 /* PeopleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleDetailViewController.m; sourceTree = "<group>"; };
+		E39D59EA2009539600D67390 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E3B512B31FD6FB4700591583 /* GiftsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsTableViewController.h; sourceTree = "<group>"; };
 		E3B512B41FD6FB4700591583 /* GiftsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsTableViewController.m; sourceTree = "<group>"; };
 		E3B512B81FD6FD2900591583 /* GiftsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsDetailViewController.h; sourceTree = "<group>"; };
 		E3B512B91FD6FD2900591583 /* GiftsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsDetailViewController.m; sourceTree = "<group>"; };
-		E3B512BB1FD786D500591583 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E3EBAA7C1FF3443C0008DECF /* PeopleForGiftsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleForGiftsViewController.h; sourceTree = "<group>"; };
 		E3EBAA7D1FF3443D0008DECF /* PeopleForGiftsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleForGiftsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +119,15 @@
 			path = Queries;
 			sourceTree = "<group>";
 		};
+		E361608A200455A7008C60A6 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				E3616087200454AC008C60A6 /* EventsTableViewController.h */,
+				E3616088200454AC008C60A6 /* EventsTableViewController.m */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		E379072D1FCA2A3B0031D108 = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +135,7 @@
 				E37907511FCA2A3C0031D108 /* gifter 1.0Tests */,
 				E379075C1FCA2A3C0031D108 /* gifter 1.0UITests */,
 				E37907371FCA2A3C0031D108 /* Products */,
-				E3B512BB1FD786D500591583 /* gifterDB.db */,
+				E39D59EA2009539600D67390 /* gifterDB.db */,
 				E379076E1FCA5C4E0031D108 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -139,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				E379073F1FCA2A3C0031D108 /* Main.storyboard */,
+				E361608A200455A7008C60A6 /* Events */,
 				E347C3C41FF207D50056E6C3 /* Queries */,
 				E3B512B71FD6FCBA00591583 /* Gifts */,
 				E3B512B61FD6FC9C00591583 /* People */,
@@ -185,6 +201,8 @@
 			children = (
 				E37907781FCB432E0031D108 /* PeopleDetailViewController.h */,
 				E37907791FCB432E0031D108 /* PeopleDetailViewController.m */,
+				E36160842001C1B3008C60A6 /* PeopleDetailTwoViewController.h */,
+				E36160852001C1B3008C60A6 /* PeopleDetailTwoViewController.m */,
 				E37907731FCB2A970031D108 /* PeopleTableViewController.h */,
 				E37907741FCB2A970031D108 /* PeopleTableViewController.m */,
 			);
@@ -328,7 +346,7 @@
 			files = (
 				E37907461FCA2A3C0031D108 /* LaunchScreen.storyboard in Resources */,
 				E37907431FCA2A3C0031D108 /* Assets.xcassets in Resources */,
-				E3B512BC1FD786D600591583 /* gifterDB.db in Resources */,
+				E39D59EB2009539700D67390 /* gifterDB.db in Resources */,
 				E37907411FCA2A3C0031D108 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +382,8 @@
 				E379077A1FCB432E0031D108 /* PeopleDetailViewController.m in Sources */,
 				E37907721FCB21E20031D108 /* IntroViewController.m in Sources */,
 				E3EBAA7E1FF3443D0008DECF /* PeopleForGiftsViewController.m in Sources */,
+				E3616089200454AC008C60A6 /* EventsTableViewController.m in Sources */,
+				E36160862001C1B3008C60A6 /* PeopleDetailTwoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

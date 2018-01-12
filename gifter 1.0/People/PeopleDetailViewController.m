@@ -26,8 +26,6 @@
     _datePickerBirthday = [[UIDatePicker alloc] init];
     _df = [[NSDateFormatter alloc] init];
     
-    
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -36,8 +34,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -52,9 +48,6 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@",_arrGifts[indexPath.row][1]];
     return cell;
 }
-
-
-
 
 
 - (IBAction)saveInfo:(id)sender {
@@ -89,8 +82,6 @@
     
     
 }
-
-
 
 -(void)loadInfoToEdit{
     // Create the query.
