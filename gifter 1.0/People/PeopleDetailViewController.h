@@ -35,6 +35,8 @@
 
 @property (nonatomic) NSInteger recordIDToEdit;
 -(void)loadInfoToEdit;
+
+
 @property (strong, nonatomic) IBOutlet UITableView *tblViewPeople;
 @property (strong, nonatomic) IBOutlet UITableView *tblViewEvents;
 

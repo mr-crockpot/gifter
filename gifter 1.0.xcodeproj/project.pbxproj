@@ -21,9 +21,11 @@
 		E37907721FCB21E20031D108 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37907711FCB21E20031D108 /* IntroViewController.m */; };
 		E37907751FCB2A970031D108 /* PeopleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37907741FCB2A970031D108 /* PeopleTableViewController.m */; };
 		E379077A1FCB432E0031D108 /* PeopleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37907791FCB432E0031D108 /* PeopleDetailViewController.m */; };
-		E39D59EB2009539700D67390 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E39D59EA2009539600D67390 /* gifterDB.db */; };
 		E3B512B51FD6FB4700591583 /* GiftsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B512B41FD6FB4700591583 /* GiftsTableViewController.m */; };
 		E3B512BA1FD6FD2900591583 /* GiftsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3B512B91FD6FD2900591583 /* GiftsDetailViewController.m */; };
+		E3C840CA202FFF5000456415 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3C840C9202FFF5000456415 /* gifterDB.db */; };
+		E3C840CB202FFF5000456415 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3C840C9202FFF5000456415 /* gifterDB.db */; };
+		E3C840CC202FFF5000456415 /* gifterDB.db in Resources */ = {isa = PBXBuildFile; fileRef = E3C840C9202FFF5000456415 /* gifterDB.db */; };
 		E3EBAA7E1FF3443D0008DECF /* PeopleForGiftsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3EBAA7D1FF3443D0008DECF /* PeopleForGiftsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -74,11 +76,11 @@
 		E37907741FCB2A970031D108 /* PeopleTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleTableViewController.m; sourceTree = "<group>"; };
 		E37907781FCB432E0031D108 /* PeopleDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleDetailViewController.h; sourceTree = "<group>"; };
 		E37907791FCB432E0031D108 /* PeopleDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleDetailViewController.m; sourceTree = "<group>"; };
-		E39D59EA2009539600D67390 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E3B512B31FD6FB4700591583 /* GiftsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsTableViewController.h; sourceTree = "<group>"; };
 		E3B512B41FD6FB4700591583 /* GiftsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsTableViewController.m; sourceTree = "<group>"; };
 		E3B512B81FD6FD2900591583 /* GiftsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiftsDetailViewController.h; sourceTree = "<group>"; };
 		E3B512B91FD6FD2900591583 /* GiftsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiftsDetailViewController.m; sourceTree = "<group>"; };
+		E3C840C9202FFF5000456415 /* gifterDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = gifterDB.db; sourceTree = "<group>"; };
 		E3EBAA7C1FF3443C0008DECF /* PeopleForGiftsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeopleForGiftsViewController.h; sourceTree = "<group>"; };
 		E3EBAA7D1FF3443D0008DECF /* PeopleForGiftsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeopleForGiftsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +137,7 @@
 				E37907511FCA2A3C0031D108 /* gifter 1.0Tests */,
 				E379075C1FCA2A3C0031D108 /* gifter 1.0UITests */,
 				E37907371FCA2A3C0031D108 /* Products */,
-				E39D59EA2009539600D67390 /* gifterDB.db */,
+				E3C840C9202FFF5000456415 /* gifterDB.db */,
 				E379076E1FCA5C4E0031D108 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -346,7 +348,7 @@
 			files = (
 				E37907461FCA2A3C0031D108 /* LaunchScreen.storyboard in Resources */,
 				E37907431FCA2A3C0031D108 /* Assets.xcassets in Resources */,
-				E39D59EB2009539700D67390 /* gifterDB.db in Resources */,
+				E3C840CA202FFF5000456415 /* gifterDB.db in Resources */,
 				E37907411FCA2A3C0031D108 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C840CB202FFF5000456415 /* gifterDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3C840CC202FFF5000456415 /* gifterDB.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

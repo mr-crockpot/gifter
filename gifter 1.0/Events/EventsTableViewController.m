@@ -19,11 +19,7 @@
     
     _dbManager = [[DBManager alloc] initWithDatabaseFilename:@"gifterDB.db"];
     [self loadEventsData];
-    NSLog(@"The count is %li",_arrEvents.count);
-    if (_arrEvents.count == 0) {
-        [self createEventData];
-        }
-   
+  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

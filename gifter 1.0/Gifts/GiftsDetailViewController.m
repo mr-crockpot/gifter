@@ -8,6 +8,7 @@
 
 #import "GiftsDetailViewController.h"
 #import "PeopleDetailViewController.h"
+#import "PeopleForGiftsViewController.h"
 
 
 @interface GiftsDetailViewController ()
@@ -180,6 +181,7 @@
 - (IBAction)btnViewDetailPressed:(UIButton *)sender {
     
     [self performSegueWithIdentifier:@"segueGiftDetailToPeopleDetail" sender:sender];
+
     
 }
 
@@ -188,5 +190,13 @@
         PeopleDetailViewController *peopleDetailViewController = [segue destinationViewController];
         peopleDetailViewController.recordIDToEdit = ((UIButton *)sender).tag;
     }
+    
+    if ([segue.identifier isEqualToString:@"segueGiftDetailToPeopleForGifts"]) {
+        PeopleForGiftsViewController *peopleForGiftsViewController = [segue destinationViewController];
+        peopleForGiftsViewController.activeGift = _recordIDToEdit;
+        peopleForGiftsViewController.soloIncoming= YES;
+        
+    }
+    
 }
 @end

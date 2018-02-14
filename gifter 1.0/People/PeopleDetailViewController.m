@@ -7,6 +7,7 @@
 //
 
 #import "PeopleDetailViewController.h"
+#import "PeopleDetailTwoViewController.h"
 #import "DBManager.h"
 
 
@@ -45,7 +46,7 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",_arrGifts[indexPath.row][1]];
+    cell.textLabel.text = @"Events here";
     return cell;
 }
 
@@ -56,11 +57,11 @@
     NSString *query;
    if (self.recordIDToEdit == -1) {
 
-       query = [NSString stringWithFormat:@"INSERT INTO people  VALUES (null, '%@', '%@','%@')", _txtFieldFirstName.text, _txtFieldLastName.text, _txtFieldBirthday.text];
+       query = [NSString stringWithFormat:@"INSERT INTO people  VALUES (null, '%@', '%@',null,null,null,null,null,null)", _txtFieldFirstName.text, _txtFieldLastName.text];
        
     }
     else{
-        query = [NSString stringWithFormat:@"UPDATE people SET firstname='%@', lastname='%@', birthday='%@' where peopleID= %li", _txtFieldFirstName.text, _txtFieldLastName.text, _txtFieldBirthday.text, _recordIDToEdit];
+        query = [NSString stringWithFormat:@"UPDATE people SET firstname='%@', lastname='%@' where peopleID= %li", _txtFieldFirstName.text, _txtFieldLastName.text,  _recordIDToEdit];
     }
 
   // Execute the query.
@@ -94,7 +95,7 @@
     // Set the loaded data to the textfields.
     _txtFieldFirstName.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"firstname"]];
     _txtFieldLastName.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"lastname"]];
-    _txtFieldBirthday.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"birthday"]];
+    
     
     NSString *dateToUse = _txtFieldBirthday.text;
    
@@ -123,4 +124,15 @@
     
     
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+   
+    if ([segue.identifier isEqualToString:@"seguePeopleDetailToPeopleDetailTwo"]) {
+        
+        PeopleDetailTwoViewController *peopleDetailTwoViewController = [segue destinationViewController];
+        peopleDetailTwoViewController.activePerson = _recordIDToEdit;
+    }
+    
+}
+
 @end
