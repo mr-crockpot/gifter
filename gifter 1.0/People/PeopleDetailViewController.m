@@ -8,6 +8,7 @@
 
 #import "PeopleDetailViewController.h"
 #import "PeopleDetailTwoViewController.h"
+#import "GiftsForPeopleViewController.h"
 #import "DBManager.h"
 
 
@@ -18,7 +19,7 @@
 @implementation PeopleDetailViewController
 
 - (void)viewDidLoad {
-    
+    NSLog(@"The rec to edit is %li",_recordIDToEdit);
     _dbManager  = [[DBManager alloc] initWithDatabaseFilename:@"gifterDB.db"];
     if (_recordIDToEdit != -1) {
         // Load the record with the specific ID from the database.
@@ -131,6 +132,13 @@
         
         PeopleDetailTwoViewController *peopleDetailTwoViewController = [segue destinationViewController];
         peopleDetailTwoViewController.activePerson = _recordIDToEdit;
+    }
+    
+    if  ([segue.identifier isEqualToString:@"seguePeopleDetailToGiftsForPeople"]){
+        GiftsForPeopleViewController *giftsForPeopleViewController = [segue destinationViewController];
+        giftsForPeopleViewController.activePerson = _recordIDToEdit;
+        giftsForPeopleViewController.soloIncoming = YES;
+        NSLog(@"Leaving with record to edit of %li",_recordIDToEdit);
     }
     
 }

@@ -19,11 +19,14 @@
 - (void)viewDidLoad {
     
      _dbManager = [[DBManager alloc] initWithDatabaseFilename:@"gifterDB.db"];
-    
     _selectable = YES;
-    [self loadData];
-    NSLog(@"The array people is %@",_arrPeople);
+    if (_soloIncoming) {
+        _selectable = NO;
+    }
     
+    [self loadData];
+    
+    NSLog(@"selectabe is %i and active person is %li ",_selectable,_activePerson);
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -61,7 +64,11 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView == _tblViewPeople) {
-        return _arrPeople.count;
+        if (_activePerson == 0) {
+            return _arrPeople.count;}
+        else {
+            return 1;
+        }
     }
     if (tableView == _tblViewGifts) {
         return _arrOrderGiftJoin.count;
@@ -81,10 +88,17 @@
     
     if (tableView == _tblViewPeople) {
         
-    UITableViewCell *cellPeople = [tableView dequeueReusableCellWithIdentifier:@"cellsPeople" forIndexPath:indexPath];
+        UITableViewCell *cellPeople = [tableView dequeueReusableCellWithIdentifier:@"cellsPeople" forIndexPath:indexPath];
+        
+        if (_activePerson == 0) {
         
     cellPeople.textLabel.text = [NSString stringWithFormat:@"%@", _arrPeople[indexPath.row][1]];
-       
+        }
+        
+        else {
+            cellPeople.textLabel.text = [NSString stringWithFormat:@"%@ %@", _arrPeople[_activePerson-2][1],_arrPeople[_activePerson-2][2]];
+            
+        }
        
        
         return cellPeople;
@@ -92,7 +106,8 @@
     else if (tableView == _tblViewGifts) {
         
         UITableViewCell *cellGifts = [tableView dequeueReusableCellWithIdentifier:@"cellsGifts" forIndexPath:indexPath];
-        cellGifts.textLabel.text = [NSString stringWithFormat:@"%@", _arrOrderGiftJoin [indexPath.row][0]];
+        cellGifts.textLabel.text = _arrOrderGiftJoin[indexPath.row][0];
+        
         if ([_arrOrderGiftJoin [indexPath.row][2] isEqualToString:@"-1"]) {
             cellGifts.accessoryType = UITableViewStylePlain;
             

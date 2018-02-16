@@ -90,7 +90,7 @@
        if (!_activeGift) {
      
            cellGifts.textLabel.text = [NSString stringWithFormat:@"%@", _arrGifts[indexPath.row][1]];
-           // [_arrGiftIDs addObject:_arrGifts[indexPath.row][0]];
+      
      
  }
         else {
