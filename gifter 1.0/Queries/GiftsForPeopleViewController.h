@@ -14,15 +14,35 @@
 
 @property (strong,nonatomic)  DBManager *dbManager;
 
+@property NSInteger activeGift;
+@property NSInteger activePerson;
+
 @property (strong, nonatomic) IBOutlet UITableView *tblViewPeople;
 @property (strong, nonatomic) IBOutlet UITableView *tblViewGifts;
 
+
+@property (strong, nonatomic) NSMutableArray *arrOrderGiftJoin;
 @property (strong, nonatomic) NSMutableArray *arrPeople;
+@property BOOL selectable;
+@property BOOL soloIncoming;
+
+@property NSInteger giftRowSelected;
+@property NSInteger segmentDisplayMode;
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentGiftList;
+- (IBAction)segmentGiftListChanged:(id)sender;
+
+
+
+
+
+
+/*@property (strong, nonatomic) NSMutableArray *arrPeople;
 @property (strong, nonatomic) NSMutableArray *arrGifts;
 @property (strong, nonatomic) NSMutableArray *arrPeopleIDs;
 @property (strong, nonatomic) NSMutableArray *arrGiftIDs;
+*/
 
-@property NSInteger giftRowSelected;
 
 
 

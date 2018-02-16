@@ -21,8 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tblViewGifts;
 @property (strong, nonatomic) IBOutlet UITableView *tblViewPeople;
 
-@property (strong, nonatomic) NSMutableArray *arrPeople;
-
+//@property (strong, nonatomic) NSMutableArray *arrPeople;
 //@property (strong, nonatomic) NSMutableArray *arrPeopleIDs;
 //@property (strong, nonatomic) NSMutableArray *arrGiftIDs;
 //@property (strong, nonatomic) NSMutableArray *arrOrders;
@@ -33,8 +32,6 @@
 @property (strong, nonatomic) NSMutableArray *arrGifts;
 @property BOOL selectable;
 @property BOOL soloIncoming;
-
-
 
 @property NSInteger peopleRowSelected;
 @property NSInteger segmentDisplayMode;

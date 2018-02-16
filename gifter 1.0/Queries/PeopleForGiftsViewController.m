@@ -130,20 +130,6 @@
             
         _activeGift =[_arrGifts[indexPath.row][0] integerValue ];
        
-       /* switch (_segmentDisplayMode) {
-            case 0:
-                peopleQuery =[NSString stringWithFormat: @"SELECT * FROM people JOIN orders ON people.peopleID = orders.people AND orders.gifts =  %li",_activeGift];
-                break;
-            case 1:
-                peopleQuery =[NSString stringWithFormat: @"SELECT * FROM people LEFT JOIN orders ON people.peopleID = orders.people AND orders.gifts =  %li",_activeGift];
-                break;
-            default:
-                break;
-        }
-        
-        _arrOrderPeopleJoin = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:peopleQuery]];
-        */
-        
         [self loadData];
         [_tblViewPeople reloadData];}
         
@@ -154,6 +140,7 @@
         NSString *queryAdjustOrder;
         _activePerson = [_arrOrderPeopleJoin[indexPath.row][2] integerValue];
        
+
         if (![_arrOrderPeopleJoin[indexPath.row][3] isEqualToString:@"-1"]) {
            queryAdjustOrder = [NSString stringWithFormat:@"DELETE FROM orders WHERE people = %li and gifts = %li",_activePerson,_activeGift];
         }
