@@ -19,7 +19,7 @@
 @implementation PeopleDetailViewController
 
 - (void)viewDidLoad {
-    NSLog(@"The rec to edit is %li",_recordIDToEdit);
+   
     _dbManager  = [[DBManager alloc] initWithDatabaseFilename:@"gifterDB.db"];
     if (_recordIDToEdit != -1) {
         // Load the record with the specific ID from the database.
@@ -32,6 +32,11 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self loadInfoToEdit];
+    [_tblViewEvents reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -42,15 +47,21 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _arrGifts.count;
+    return _arrEvents.count;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells" forIndexPath:indexPath];
-    cell.textLabel.text = @"Events here";
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",_arrEvents[indexPath.row][0],_arrEvents[indexPath.row][1]];
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedEvent = [_arrEvents[indexPath.row][2] integerValue];
+    [self performSegueWithIdentifier:@"seguePeopleDetailToGiftsForPeople" sender:self];
+    
+}
 
 - (IBAction)saveInfo:(id)sender {
     // Prepare the query string.
@@ -87,11 +98,11 @@
 
 -(void)loadInfoToEdit{
     // Create the query.
-    NSString *query = [NSString stringWithFormat:@"SELECT * FROM people where peopleID=%li", _recordIDToEdit];
-     NSString *queryPeople = @"SELECT * FROM gifts";
+    NSString *queryPeople = [NSString stringWithFormat:@"SELECT * FROM people where peopleID=%li", _recordIDToEdit];
+     NSString *queryEventsJoin = [NSString stringWithFormat: @"select events.eventName, peopleDates.date, events.eventID from peopleDates join events where peopleDates.eventID = events.eventID and peopleDates.peopleID = %li",_recordIDToEdit];
   
     // Load the relevant data.
-    NSArray *results = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:query]];
+    NSArray *results = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
     
     // Set the loaded data to the textfields.
     _txtFieldFirstName.text = [[results objectAtIndex:0] objectAtIndex:[_dbManager.arrColumnNames indexOfObject:@"firstname"]];
@@ -107,11 +118,12 @@
     NSDate *dateToSet = [df2 dateFromString:dateToUse];
    
  
-      [_datePickerBirthday setDate:dateToSet];
+    //  [_datePickerBirthday setDate:dateToSet];
     
     //Load the gifts tables
     
-    _arrGifts = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
+   // _arrGifts = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryPeople]];
+    _arrEvents = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryEventsJoin]];
     
 }
 
@@ -138,7 +150,8 @@
         GiftsForPeopleViewController *giftsForPeopleViewController = [segue destinationViewController];
         giftsForPeopleViewController.activePerson = _recordIDToEdit;
         giftsForPeopleViewController.soloIncoming = YES;
-        NSLog(@"Leaving with record to edit of %li",_recordIDToEdit);
+        giftsForPeopleViewController.activeEvent = _selectedEvent;
+       
     }
     
 }

@@ -84,7 +84,7 @@
     NSString *queryUpdate = [NSString stringWithFormat:@"UPDATE events SET repeats = %@ WHERE EventID = %li",_arrEvents[sender.tag][2],[_arrEvents[sender.tag][0] integerValue]];
         [_dbManager executeQuery:queryUpdate];
    
-    NSLog(@"I switched array %@",_arrEvents);
+   
   
     
 }

@@ -30,10 +30,14 @@
 
 @property (strong,nonatomic) DBManager *dbManager;
 @property (strong, nonatomic) NSMutableArray *arrGifts;
+@property (strong, nonatomic) NSMutableArray *arrEvents;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *btnMoreEvents;
 
 @property (nonatomic) NSInteger recordIDToEdit;
+@property (nonatomic) NSInteger selectedEvent;
+
 -(void)loadInfoToEdit;
 
 

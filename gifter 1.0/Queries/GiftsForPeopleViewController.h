@@ -16,6 +16,7 @@
 
 @property NSInteger activeGift;
 @property NSInteger activePerson;
+@property NSInteger activeEvent;
 
 @property (strong, nonatomic) IBOutlet UITableView *tblViewPeople;
 @property (strong, nonatomic) IBOutlet UITableView *tblViewGifts;
@@ -32,7 +33,9 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentGiftList;
 - (IBAction)segmentGiftListChanged:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentEventList;
 
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentEventListChanged;
 
 
 

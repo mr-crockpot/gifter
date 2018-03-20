@@ -25,8 +25,9 @@
     }
     
     [self loadData];
+    NSLog(@"Incoming event is %li",_activeEvent);
     
-    NSLog(@"selectabe is %i and active person is %li ",_selectable,_activePerson);
+  
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -133,7 +134,7 @@
             _activePerson =[_arrPeople[indexPath.row][0] integerValue ];
             
             [self loadData];
-         NSLog(@"People Active gift: %li Active Person:%li",_activeGift,_activePerson);
+         
         [_tblViewGifts reloadData];
     }
     }
@@ -141,11 +142,11 @@
     if (tableView == _tblViewGifts){
         
         _activeGift = [_arrOrderGiftJoin[indexPath.row][1] integerValue];
-        NSLog(@"Active gift: %li Active Person:_%li",_activeGift,_activePerson);
+       
         
         NSString *queryAdjustOrder;
         if (![_arrOrderGiftJoin[indexPath.row][2] isEqualToString:@"-1"]) {
-             NSLog(@"I am here");
+          
             queryAdjustOrder = [NSString stringWithFormat:@"DELETE FROM orders WHERE people = %li and gifts = %li",_activePerson,_activeGift];
            
         }

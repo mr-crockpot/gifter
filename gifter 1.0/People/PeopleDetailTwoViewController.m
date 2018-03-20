@@ -52,11 +52,11 @@
     
     _activeEvent = [_arrEvents[row][0] integerValue];
     _activeRow = row;
-     NSMutableArray *arraySlice = [[NSMutableArray alloc] initWithArray:_arrEvents[_activeRow] copyItems:YES];
+    // NSMutableArray *arraySlice = [[NSMutableArray alloc] initWithArray:_arrEvents[_activeRow] copyItems:YES];
     
     
-    if (arraySlice.count>3) {
-        _currentDate = _arrEvents[row][6];
+    if ([_arrEvents[_activeRow][3] integerValue]!= -1) {
+        _currentDate = _arrEvents[row][4];
         
     }
     else{
@@ -82,11 +82,12 @@
 
  -(void)loadEventsData {
    
-     NSString *queryActiveEvents =[NSString stringWithFormat:@"SELECT * FROM events LEFT JOIN peopleDates ON peopleDates.eventID = events.eventID AND peopleDates.peopleID = %li",_activePerson];
+
+     NSString *queryJoinPeopleDates = [NSString stringWithFormat:@"SELECT events.eventID,events.eventName,events.repeats, ifnull( peopleDates.peopleID,-1),ifnull(peopledates.date, -1) FROM events LEFT JOIN peopleDates ON peopleDates.eventID = events.eventID AND peopleDates.peopleID = %li",_activePerson];
      
-     _arrEvents = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryActiveEvents]];
+     _arrEvents = [[NSMutableArray alloc] initWithArray:[_dbManager loadDataFromDB:queryJoinPeopleDates]];
      
-     NSLog(@"The array of events is %@",_arrEvents);
+    
      
  }
  
@@ -95,18 +96,16 @@
 
 - (IBAction)btnAddDatePressed:(id)sender {
     
-    NSMutableArray *arraySlice = [[NSMutableArray alloc] initWithArray:_arrEvents[_activeRow] copyItems:YES];
-    NSLog(@"The array slice has %li objects and is %@",arraySlice.count,arraySlice);
-    NSString *eventQuery;
+   NSString *eventQuery;
     
-    if (arraySlice.count>3) {
-        NSLog(@"You should replace");
-        eventQuery = [NSString stringWithFormat:@"update peopleDates set date = '%@' where peopleDates.eventID = %li",_activeDate,_activeEvent];
+    if ([_arrEvents[_activeRow][3] integerValue]!= -1) {
+       
+        eventQuery = [NSString stringWithFormat:@"update peopleDates set date = '%@' where peopleDates.eventID = %li and peopleDates.peopleID = %li",_activeDate,_activeEvent,_activePerson];
         
     }
     
     else {
-        NSLog(@"You should add");
+      
         eventQuery = [NSString stringWithFormat:@"INSERT into peopleDates values (null,%li,%li,'%@')",_activePerson,_activeEvent,_activeDate];
         
     }
